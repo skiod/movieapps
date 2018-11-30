@@ -9,9 +9,10 @@
                 <h3 class="headline mb-0 text-md-center">Movies</h3>
             </v-card-title>
             <v-card-text>
-                <Main v-if="recent == 'recent'"></Main>
+                <Main @push-stars="getStars" v-if="recent == 'recent'"></Main>
+                <Favorite :items="stars" v-if="recent == 'favorites' "></Favorite>
             </v-card-text>
-            <Footer @step="step"></Footer>
+            <Footer @step="step" :stars-count="stars.length"></Footer>
           </v-card>
         </v-flex>
     </v-layout>
@@ -21,14 +22,22 @@
 <script>
   import Footer from "./Footer";
   import Main   from './Main';
+  import Favorite from './Favorite';
   export default {
-    components: {Footer,Main},
+    components: {Footer,Main,Favorite},
     data(){
-        return {recent : 'recent'}
+        return {
+            recent : 'recent',
+            stars : [],
+        }
     },
     methods : {
         step(value){
            this.recent = value;
+        },
+        getStars(stars){
+            this.stars = stars;
+            console.log("x",stars);
         }
     }
   }

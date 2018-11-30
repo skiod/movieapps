@@ -22,23 +22,16 @@
         flat
         value="favorites"
       >
-        <span>Favorites</span>
+        <span>Favorites {{ starsCount }}</span>
         <v-icon>favorite</v-icon>
       </v-btn>
 
-      <v-btn
-        color="teal"
-        flat
-        value="nearby"
-      >
-        <span>Profile</span>
-        <v-icon>place</v-icon>
-      </v-btn>
     </v-bottom-nav>
   </v-card>
 </template>
 <script>
   export default {
+    props : ['stars-count'],
     data () {
       return {
         bottomNav: 'recent'

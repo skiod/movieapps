@@ -1,16 +1,7 @@
 <template>
     <div>
-        <div>
-            <v-text-field append-icon="search" name="name" label="keywords" type="text" v-model="keywords"></v-text-field>
-        </div>
-        <v-alert v-if="messageError != null" style="color:red" :value="true" type="error">{{messageError}}</v-alert>
-        <v-progress-circular
-            v-if="loading"
-            :size="50"
-            color="primary"
-            indeterminate
-            ></v-progress-circular>
-            <div v-else>
+        
+            <div>
                     <v-layout row>
                     <v-flex xs12>
                         <v-card>
@@ -41,9 +32,9 @@
 </template>
 <script>
     export default{
+        props : ['items'],
         data(){
             return {
-                items : [],
                 stars : [],
                 loading : true,
                 keywords : '',
@@ -52,28 +43,7 @@
             }
         },
         watch : {
-            keywords (){
-                        var t = 500;
-                    clearTimeout(window.popTimeout);
-                        window.popTimeout = setTimeout( () => {
-                        this.messageError = null;
-                        this.loading = true;
-                        axios.get('http://www.omdbapi.com/?i=tt3896198&apikey=3ae09044&s='+this.keywords)
-                        .then(response=>{
-                            if(response.data.Error){
-                                this.messageError = response.data.Error;
-                            }
-                            this.items = response.data.Search;
-                            this.loading = false;
-                        });
-                        },t);
-            },
-            stars :{
-                handler(){
-                    this.$emit('push-stars',this.stars);
-                },
-                deep :true
-            }
+
 
         },
         methods : {

@@ -1,22 +1,17 @@
-# vueapp
+# Name 
 
-> strong knowledge in vue
+movies names
 
-## Build Setup
+## Description
 
-``` bash
-# install dependencies
-npm install
+Yo ! nothing special here . this is just an implementation of vuejs and vuetify 
 
-# serve with hot reload at localhost:8080
-npm run dev
 
-# build for production with minification
-npm run build
+## Screenshots
+ ![alt text](http://khalidskiod.com/vue/vuecapture.png)
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+## demo
+[demo](http://khalidskiod.com/vue)
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-# movieapps
+
+
